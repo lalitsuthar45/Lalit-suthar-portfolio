@@ -1,0 +1,368 @@
+@import 'tailwindcss';
+
+/* next-themes toggles a `.dark` class on <html>, so opt into the class strategy. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* -------------------------------------------------------------------------- */
+/*                                Design tokens                               */
+/* -------------------------------------------------------------------------- */
+
+@theme {
+  /* Brand palette */
+  --color-ink: #09090b;
+  --color-surface: #111118;
+
+  --color-brand-50: #eff6ff;
+  --color-brand-100: #dbeafe;
+  --color-brand-200: #bfdbfe;
+  --color-brand-300: #93c5fd;
+  --color-brand-400: #60a5fa;
+  --color-brand-500: #3b82f6;
+  --color-brand-600: #2563eb;
+  --color-brand-700: #1d4ed8;
+
+  --color-accent-300: #67e8f9;
+  --color-accent-400: #22d3ee;
+  --color-accent-500: #06b6d4;
+
+  --color-violet-accent: #8b5cf6;
+  --color-fuchsia-accent: #d946ef;
+
+  /* Typography */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, 'SF Mono', Menlo, Monaco, monospace;
+
+  /* Extra breakpoint for ultra-wide monitors */
+  --breakpoint-3xl: 120rem;
+
+  /* Animations */
+  --animate-aurora: aurora 22s ease-in-out infinite;
+  --animate-float: float 7s ease-in-out infinite;
+  --animate-marquee: marquee 38s linear infinite;
+  --animate-shimmer: shimmer 2.4s linear infinite;
+  --animate-grid-drift: grid-drift 24s linear infinite;
+  --animate-spin-slow: spin 14s linear infinite;
+  --animate-blink: blink 1.05s step-end infinite;
+}
+
+@keyframes aurora {
+
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0.5;
+  }
+
+  33% {
+    transform: translate3d(6%, -4%, 0) scale(1.12);
+    opacity: 0.75;
+  }
+
+  66% {
+    transform: translate3d(-5%, 5%, 0) scale(0.95);
+    opacity: 0.6;
+  }
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-14px);
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes shimmer {
+  from {
+    background-position: 200% 0;
+  }
+
+  to {
+    background-position: -200% 0;
+  }
+}
+
+@keyframes grid-drift {
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: 60px 60px;
+  }
+}
+
+@keyframes blink {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/*                              Theme surfaces                                */
+/* -------------------------------------------------------------------------- */
+
+@layer base {
+  :root {
+    --bg: #f8fafc;
+    --bg-elevated: #ffffff;
+    --fg: #0f172a;
+    --fg-muted: #334155;
+    --fg-subtle: #475569;
+    --border: rgb(15 23 42 / 0.12);
+    --border-strong: rgb(15 23 42 / 0.22);
+    --glass: rgb(255 255 255 / 0.85);
+    --glass-strong: rgb(255 255 255 / 0.95);
+    --grid-line: rgb(15 23 42 / 0.05);
+
+    --gradient-start: #1d4ed8;
+    --gradient-mid: #0284c7;
+    --gradient-end: #6d28d9;
+
+    /* Hero-only surface — pure white here, off-white everywhere else. */
+    --hero-bg: #ffffff;
+
+    /* Opaque stand-in for `glass` where backdrop-filter is too costly. */
+    --glass-solid: #ffffff;
+
+    color-scheme: light;
+  }
+
+  .dark {
+    --bg: #09090b;
+    --bg-elevated: #111118;
+    --fg: #f4f4f5;
+    --fg-muted: #a1a1aa;
+    --fg-subtle: #71717a;
+    --border: rgb(255 255 255 / 0.1);
+    --border-strong: rgb(255 255 255 / 0.18);
+    --glass: rgb(255 255 255 / 0.045);
+    --glass-strong: rgb(255 255 255 / 0.08);
+    --grid-line: rgb(255 255 255 / 0.045);
+
+    --gradient-start: #60a5fa;
+    --gradient-mid: #22d3ee;
+    --gradient-end: #a78bfa;
+
+    /* Hero-only surface — true black here, near-black everywhere else. */
+    --hero-bg: #000000;
+
+    /* Matches what `glass` composites to over `--bg` in this theme. */
+    --glass-solid: #131316;
+
+    color-scheme: dark;
+  }
+
+  * {
+    border-color: var(--border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    /* Keep anchored sections clear of the fixed header. */
+    scroll-padding-top: 5.5rem;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    background-color: var(--bg);
+    color: var(--fg);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    /* Hard guarantee against horizontal scroll on every breakpoint. */
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background-color: rgb(59 130 246 / 0.3);
+    color: var(--fg);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-brand-500);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  /* Custom scrollbar (progressive enhancement — ignored where unsupported). */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, var(--color-brand-500), var(--color-violet-accent));
+    border-radius: 999px;
+    border: 2px solid var(--bg);
+  }
+
+  /* Respect the OS "reduce motion" preference across the whole site. */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/*                              Utility classes                               */
+/* -------------------------------------------------------------------------- */
+
+@utility container-page {
+  width: 100%;
+  margin-inline: auto;
+  max-width: 80rem;
+  padding-inline: 1.25rem;
+
+  @media (min-width: 640px) {
+    padding-inline: 1.75rem;
+  }
+
+  @media (min-width: 1024px) {
+    padding-inline: 2.5rem;
+  }
+
+  @media (min-width: 1536px) {
+    max-width: 88rem;
+  }
+}
+
+/* Frosted panel used by cards, the navbar and dialogs. */
+@utility glass {
+  background-color: var(--glass);
+  backdrop-filter: blur(16px) saturate(160%);
+  -webkit-backdrop-filter: blur(16px) saturate(160%);
+  border: 1px solid var(--border);
+}
+
+@utility glass-strong {
+  background-color: var(--glass-strong);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid var(--border-strong);
+}
+
+@utility text-gradient {
+  background-image: linear-gradient(110deg,
+      var(--gradient-start) 0%,
+      var(--gradient-mid) 45%,
+      var(--gradient-end) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+/*
+ * Hero-only theming. The hero sits on a true black / true white surface, and
+ * the big name heading collapses to a solid ink-or-white against it. Scoped to
+ * `h1` on purpose: the rotating skills line below keeps the site's
+ * blue→cyan→violet `text-gradient`, as does every other section.
+ */
+@utility hero-surface {
+  background-color: var(--hero-bg);
+  transition: background-color 0.35s ease;
+
+  & h1 .text-gradient {
+    background-image: none;
+    color: var(--fg);
+    transition: color 0.35s ease;
+  }
+}
+
+@utility text-muted {
+  color: var(--fg-muted);
+}
+
+@utility text-subtle {
+  color: var(--fg-subtle);
+}
+
+/* Animated gradient hairline border. */
+@utility gradient-border {
+  position: relative;
+  background-clip: padding-box;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg,
+        rgb(59 130 246 / 0.6),
+        rgb(34 211 238 / 0.35),
+        rgb(139 92 246 / 0.6));
+    -webkit-mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+}
+
+/* Section-level vertical rhythm, tuned per breakpoint. */
+@utility section-padding {
+  padding-block: 5rem;
+
+  @media (min-width: 768px) {
+    padding-block: 7rem;
+  }
+
+  @media (min-width: 1280px) {
+    padding-block: 8.5rem;
+  }
+}
+
+/* Screen-reader-only text that becomes visible on focus (skip link). */
+@utility sr-focusable {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+
+  &:focus {
+    position: fixed;
+    width: auto;
+    height: auto;
+    overflow: visible;
+    clip-path: none;
+  }
+}
