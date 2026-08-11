@@ -63,7 +63,12 @@ export interface ExperienceItem {
 /*                                  Projects                                  */
 /* -------------------------------------------------------------------------- */
 
-export type ProjectCategory = 'Enterprise' | 'Backend' | 'Integration' | 'Full-Stack';
+export type ProjectCategory =
+  'Enterprise' |
+  'Backend' |
+  'Integration' |
+  'Full-Stack' |
+  'Web';
 
 export interface Project {
   id: string;
