@@ -8,7 +8,7 @@ export const PROJECTS: Project[] = [
     tagline: 'A calculator project focused on logic and clean UI',
     description:
       'A responsive calculator application created to practice programming logic, user interaction and modern interface design.',
-    category: 'Web',
+    category: 'Full-Stack',
     featured: true,
     icon: Calculator,
     gradient: 'from-blue-500 to-cyan-400',
@@ -56,7 +56,7 @@ export const PROJECTS: Project[] = [
     tagline: 'My personal developer portfolio',
     description:
       'A personal portfolio website showcasing my skills, projects, education and development journey.',
-    category: 'Web',
+    category: 'Full-Stack',
     icon: Github,
     gradient: 'from-emerald-400 to-teal-500',
     features: [
