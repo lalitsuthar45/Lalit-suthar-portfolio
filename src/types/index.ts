@@ -62,7 +62,8 @@ export interface ExperienceItem {
 /* -------------------------------------------------------------------------- */
 /*                                  Projects                                  */
 /* -------------------------------------------------------------------------- */
-export type ProjectCategory = string;
+export type ProjectCategory =
+
   'Enterprise' |
   'Backend' |
   'Integration' |
