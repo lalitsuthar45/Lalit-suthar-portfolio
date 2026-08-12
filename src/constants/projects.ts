@@ -20,12 +20,18 @@ export const PROJECTS: Project[] = [
     ],
     stack: ['HTML', 'CSS', 'JavaScript'],
     caseStudy: {
-      problem: 'I wanted a practical project to strengthen JavaScript logic and UI skills.',
-      approach: 'Built the calculator from scratch with a responsive interface and interactive calculation logic.',
-      impact: 'Created a complete small web application that can be used as a foundation for larger frontend projects.',
+      problem:
+        'I wanted a practical project to strengthen JavaScript logic and UI skills.',
+      approach:
+        'Built the calculator from scratch with a responsive interface and interactive calculation logic.',
+      impact:
+        'Created a complete small web application that can be used as a foundation for larger frontend projects.',
     },
-    links: { demo: 'https://lalitsuthar45.github.io/mycalculater/' },
+    links: {
+      demo: 'https://lalitsuthar45.github.io/mycalculater/',
+    },
   },
+
   {
     id: 'jio-hotstar',
     title: 'Jio Hotstar Login Page',
@@ -44,12 +50,18 @@ export const PROJECTS: Project[] = [
     ],
     stack: ['HTML', 'CSS', 'JavaScript'],
     caseStudy: {
-      problem: 'I wanted to improve my ability to recreate real-world interfaces from visual references.',
-      approach: 'Designed the page structure, styling and responsive behavior with a focus on spacing and visual hierarchy.',
-      impact: 'Strengthened frontend UI implementation and responsive design skills.',
+      problem:
+        'I wanted to improve my ability to recreate real-world interfaces from visual references.',
+      approach:
+        'Designed the page structure, styling and responsive behavior with a focus on spacing and visual hierarchy.',
+      impact:
+        'Strengthened frontend UI implementation and responsive design skills.',
     },
-    links: { demo: 'https://lalitsuthar45.github.io/jiohotstar/' },
+    links: {
+      demo: 'https://lalitsuthar45.github.io/jiohotstar/',
+    },
   },
+
   {
     id: 'portfolio',
     title: 'Lalit Suthar Portfolio',
@@ -67,13 +79,27 @@ export const PROJECTS: Project[] = [
     ],
     stack: ['HTML', 'CSS', 'JavaScript', 'GitHub Pages'],
     caseStudy: {
-      problem: 'I needed a professional place to present my skills and projects online.',
-      approach: 'Created a responsive portfolio and iterated on the UI while learning modern web development.',
-      impact: 'A public portfolio that documents my projects and growth as a developer.',
+      problem:
+        'I needed a professional place to present my skills and projects online.',
+      approach:
+        'Created a responsive portfolio and iterated on the UI while learning modern web development.',
+      impact:
+        'A public portfolio that documents my projects and growth as a developer.',
     },
-    links: { demo: 'https://lalitsuthar45.github.io/' },
+    links: {
+      demo: 'https://lalitsuthar45.github.io/',
+    },
   },
 ];
 
-export const PROJECT_CATEGORIES = ['All', 'Web', 'Frontend'] as const;
+export const PROJECT_CATEGORIES = [
+  'All',
+  'Web',
+  'Frontend',
+  'Full-Stack',
+  'Backend',
+  'Enterprise',
+  'Integration',
+] as const;
+
 export type ProjectFilter = (typeof PROJECT_CATEGORIES)[number];

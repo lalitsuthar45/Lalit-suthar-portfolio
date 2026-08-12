@@ -62,13 +62,13 @@ export interface ExperienceItem {
 /* -------------------------------------------------------------------------- */
 /*                                  Projects                                  */
 /* -------------------------------------------------------------------------- */
-
-export type ProjectCategory =
+export type ProjectCategory = string;
   'Enterprise' |
   'Backend' |
   'Integration' |
   'Full-Stack' |
-  'Web';
+  'Web'|
+  'Frontend';
 
 export interface Project {
   id: string;
