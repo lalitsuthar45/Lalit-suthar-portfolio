@@ -4,22 +4,36 @@ export const SITE = {
   name: 'Lalit Suthar',
   firstName: 'Lalit',
   lastName: 'Suthar',
+
   role: 'BCA Student & Developer',
   headline: 'Software Developer',
+
   shortBio:
     'BCA student and developer building responsive websites, useful applications and creative software projects.',
+
   description:
     'Lalit Suthar is a BCA student and developer from Rajasthan with skills in C, C++, Python, HTML, CSS, JavaScript, MySQL and DBMS.',
+
   location: 'Rajasthan, India',
   locationShort: 'Rajasthan, India',
+
   email: 'sutharlalit791@gmail.com',
-  phone: '',
-  phoneHref: '',
+
+  phone: '+91XXXXXXXXXX',
+  phoneHref: 'tel:+91XXXXXXXXXX',
+
   availability: 'Open to learning, projects & opportunities',
-  url: process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, '') ?? 'https://lalitsuthar45.github.io',
+
+  url:
+    process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, '') ??
+    'https://lalitsuthar45.github.io',
+
   resumePath: '/resume/Lalit-Suthar-Resume.pdf',
+
   profileImage: '/images/profile-full.png',
+
   locale: 'en_IN',
+
   roles: [
     'Software Developer',
     'Web Developer',
@@ -33,7 +47,8 @@ export const SOCIALS = {
   linkedin: 'https://linkedin.com/in/lalit-suthar-445646334',
   github: 'https://github.com/lalitsuthar45',
   instagram: 'https://instagram.com/lalit_suthar_45',
-  email: `mailto:${SITE.email}`,
+  email: 'mailto:sutharlalit791@gmail.com',
+  phone: 'tel:+91XXXXXXXXXX',
 } as const;
 
 export const NAV_LINKS: NavLink[] = [
@@ -62,5 +77,5 @@ export const SEO_KEYWORDS = [
   'HTML CSS JavaScript',
   'C C++ Python',
   'MySQL DBMS',
-  'Rajasthan Developer',
-];
+  'Rajasthan Developer', 
+ ];
