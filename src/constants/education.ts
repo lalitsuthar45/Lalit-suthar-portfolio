@@ -1,4 +1,4 @@
-import type { EducationItem } from '@/types';
+import type { Certification, EducationItem } from '@/types';
 
 export const EDUCATION: EducationItem[] = [
   {
@@ -19,3 +19,9 @@ export const EDUCATION: EducationItem[] = [
     ],
   },
 ];
+
+/**
+ * Certifications
+ * Add your certifications here when available.
+ */
+export const CERTIFICATIONS: Certification[] = [];
