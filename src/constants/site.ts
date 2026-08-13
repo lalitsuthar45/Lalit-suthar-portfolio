@@ -26,7 +26,7 @@ export const SITE = {
 
   url:
     process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, '') ??
-    'https://lalitsuthar45.github.io',
+    'https://lalit-suthar.netlify.app',
 
   resumePath: '/resume/Lalit-Suthar-Resume.pdf',
 

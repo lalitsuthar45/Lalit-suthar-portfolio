@@ -126,15 +126,16 @@ export function buildJsonLd() {
         inLanguage: 'en',
         publisher: { '@id': personId },
       },
-      {
-        '@type': 'ProfilePage',
-        '@id': `${SITE.url}/#profilepage`,
-        url: SITE.url,
-        name: TITLE,
-        isPartOf: { '@id': `${SITE.url}/#website` },
-        about: { '@id': personId },
-        inLanguage: 'en',
-      },
+     {
+  '@type': 'ProfilePage',
+  '@id': `${SITE.url}/#profilepage`,
+  url: SITE.url,
+  name: TITLE,
+  isPartOf: { '@id': `${SITE.url}/#website` },
+  mainEntity: { '@id': personId },
+  about: { '@id': personId },
+  inLanguage: 'en',
+},
     ],
   };
 }
