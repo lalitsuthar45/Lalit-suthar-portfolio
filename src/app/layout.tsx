@@ -48,7 +48,16 @@ const GA_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning className={`${inter.variable} ${jetbrains.variable}`}>
-      <head>
+
+<head>
+  {/* Google Search Console verification */}
+  {process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION ? (
+    <meta
+      name="google-site-verification"
+      content={process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION}
+    />
+  ) : null}
+
         {/* Structured data for search engines. */}
         <script
           type="application/ld+json"
