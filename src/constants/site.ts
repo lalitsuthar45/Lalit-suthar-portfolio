@@ -19,8 +19,8 @@ export const SITE = {
 
   email: 'sutharlalit791@gmail.com',
 
-  phone: '+91XXXXXXXXXX',
-  phoneHref: 'tel:+91XXXXXXXXXX',
+  phone: '+918306062459',
+  phoneHref: 'tel:+918306062459',
 
   availability: 'Open to learning, projects & opportunities',
 
@@ -48,7 +48,7 @@ export const SOCIALS = {
   github: 'https://github.com/lalitsuthar45',
   instagram: 'https://instagram.com/lalit_suthar_45',
   email: 'mailto:sutharlalit791@gmail.com',
-  phone: 'tel:+91XXXXXXXXXX',
+  phone: 'tel:+918306062459',
 } as const;
 
 export const NAV_LINKS: NavLink[] = [
