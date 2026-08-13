@@ -6,7 +6,7 @@ export const EDUCATION: EducationItem[] = [
     degree: 'Bachelor of Computer Applications (BCA)',
     institution: 'Mohan Lal Sukhadia University (MLSU)',
     location: 'Udaipur, Rajasthan, India',
-    period: '2025 – Present',
+    period: '2024 – Present',
     description:
       'Pursuing BCA with a focus on programming, databases, web development and core computer science concepts.',
     highlights: [
