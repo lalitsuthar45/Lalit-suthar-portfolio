@@ -1,4 +1,4 @@
-# Karan Suthar — Portfolio
+# Lalit Suthar — Portfolio
 
 A premium, animated, SEO-optimised portfolio for **lalit suthar**, Software Engineer.
 
@@ -50,7 +50,7 @@ cp .env.example .env.local
 | `NEXT_PUBLIC_GA_MEASUREMENT_ID`        | No       | Google Analytics 4 (omit to disable entirely)      |
 | `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` | No       | Search Console verification tag                    |
 
-\* Defaults to `https://karansuthar.vercel.app` — set it to your real domain before launch.
+\* Defaults to `https://lalit-suthar.netlify.app` — set it to your real domain before launch.
 
 Everything renders fine without the optional vars. The contact form simply tells visitors to
 email directly until EmailJS is configured.

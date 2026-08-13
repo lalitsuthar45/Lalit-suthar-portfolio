@@ -2,7 +2,7 @@
   "name": "lalit-suthar-portfolio",
   "version": "1.0.0",
   "private": true,
-  "description": "Premium portfolio website for Karan Suthar \u2014 Java Backend Software Engineer.",
+  "description": "Premium portfolio website for lalit suthar Software Engineer.",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
