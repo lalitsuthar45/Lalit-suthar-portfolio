@@ -98,8 +98,8 @@ export function buildJsonLd() {
         sameAs: [SOCIALS.linkedin, SOCIALS.github],
         address: {
           '@type': 'PostalAddress',
-          addressLocality: 'Ahmedabad',
-          addressRegion: 'Gujarat',
+          addressLocality: 'jalore',
+          addressRegion: 'rajasthan',
           addressCountry: 'IN',
         },
         worksFor: {
@@ -108,23 +108,14 @@ export function buildJsonLd() {
         },
         alumniOf: {
           '@type': 'CollegeOrUniversity',
-          name: 'Silver Oak University',
+          name: 'MOHANLAL SUKHADIYA UNIVERSITY UDAIPUR',
         },
         knowsAbout: [
-          'Java',
-          'Spring Boot',
-          'Microservices',
-          'REST APIs',
-          'Apache Kafka',
-          'Redis',
-          'PostgreSQL',
+          
           'MySQL',
-          'Hibernate',
-          'System Design',
-          'Distributed Systems',
-          'CI/CD',
+          
         ],
-        knowsLanguage: ['English', 'Hindi', 'Gujarati'],
+        knowsLanguage: ['English', 'Hindi',],
       },
       {
         '@type': 'WebSite',

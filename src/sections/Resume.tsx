@@ -11,10 +11,7 @@ import { EXPERIENCE } from '@/constants/experience';
 import { scaleIn } from '@/animations/variants';
 
 const HIGHLIGHTS = [
-  '3+ years building distributed Java & Spring Boot systems',
-  'Microservices, Kafka and Redis in production',
-  'Full SDLC ownership — design through deployment',
-  'ERP & POS platforms serving 100+ businesses',
+ 
 ] as const;
 
 export function Resume() {

@@ -129,7 +129,7 @@ export default function OpenGraphImage() {
           </div>
 
           <div style={{ display: 'flex', gap: 14, marginTop: 44, flexWrap: 'wrap' }}>
-            {['Java', 'Spring Boot', 'Microservices', 'Kafka', 'Redis', 'PostgreSQL'].map((tech) => (
+            {[''].map((tech) => (
               <div
                 key={tech}
                 style={{
