@@ -64,7 +64,7 @@ export const siteMetadata: Metadata = {
   icons: {
   icon: [
     {
-      url: '/favicon-48x48.png',
+      url: '/favicon.png',
       type: 'image/png',
       sizes: '48x48',
     },
@@ -75,7 +75,7 @@ export const siteMetadata: Metadata = {
   ],
   apple: [
     {
-      url: '/favicon-48x48.png',
+      url: '/favicon.png',
     },
   ],
 },
