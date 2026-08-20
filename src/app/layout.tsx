@@ -16,7 +16,12 @@ import { Preloader } from '@/components/layout/Preloader';
 import { Spotlight } from '@/components/effects/Spotlight';
 import { buildJsonLd, siteMetadata } from '@/lib/seo';
 
-// `display: swap` keeps text visible during font load — good for LCP and CLS.
+// -----------------------------------------------------------------------------
+// Fonts
+// -----------------------------------------------------------------------------
+
+// `display: swap` keeps text visible while fonts are loading.
+// This helps avoid unnecessary layout shifts and improves perceived performance.
 const inter = Inter({
   subsets: ['latin'],
   display: 'swap',
@@ -30,47 +35,117 @@ const jetbrains = JetBrains_Mono({
   weight: ['400', '500'],
 });
 
-export const metadata: Metadata = siteMetadata;
+// -----------------------------------------------------------------------------
+// Metadata
+// -----------------------------------------------------------------------------
+
+// `src/app/icon.png` is automatically detected by Next.js App Router
+// and exposed as the website favicon.
+//
+// We explicitly keep the icon configuration here as a fallback/guarantee
+// for metadata generation.
+export const metadata: Metadata = {
+  ...siteMetadata,
+
+  icons: {
+    icon: [
+      {
+        url: '/icon.png',
+        type: 'image/png',
+      },
+    ],
+    apple: [
+      {
+        url: '/icon.png',
+        type: 'image/png',
+      },
+    ],
+  },
+};
+
+// -----------------------------------------------------------------------------
+// Viewport
+// -----------------------------------------------------------------------------
 
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
   maximumScale: 5,
+
   themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#f7f8fb' },
-    { media: '(prefers-color-scheme: dark)', color: '#09090b' },
+    {
+      media: '(prefers-color-scheme: light)',
+      color: '#f7f8fb',
+    },
+    {
+      media: '(prefers-color-scheme: dark)',
+      color: '#09090b',
+    },
   ],
+
   colorScheme: 'dark light',
 };
 
+// -----------------------------------------------------------------------------
+// Google Analytics
+// -----------------------------------------------------------------------------
+
 const GA_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+// -----------------------------------------------------------------------------
+// Root Layout
+// -----------------------------------------------------------------------------
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
-    <html lang="en" suppressHydrationWarning className={`${inter.variable} ${jetbrains.variable}`}>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${inter.variable} ${jetbrains.variable}`}
+    >
+      <head>
+        {/* -----------------------------------------------------------------
+            Google Search Console Verification
+            ----------------------------------------------------------------- */}
+        {process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION ? (
+          <meta
+            name="google-site-verification"
+            content={process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION}
+          />
+        ) : null}
 
-<head>
-  {/* Google Search Console verification */}
-  {process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION ? (
-    <meta
-      name="google-site-verification"
-      content={process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION}
-    />
-  ) : null}
-
-        {/* Structured data for search engines. */}
+        {/* -----------------------------------------------------------------
+            Structured Data / JSON-LD
+            Helps search engines understand the portfolio, person,
+            website and profile page.
+            ----------------------------------------------------------------- */}
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(buildJsonLd()) }}
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(buildJsonLd()),
+          }}
         />
       </head>
+
       <body>
         <ThemeProvider>
-          {/* Keyboard users land here first. */}
-          <a href="#main" className="sr-focusable z-999 rounded-lg bg-brand-600 px-4 py-2 text-white">
+          {/* -----------------------------------------------------------------
+              Accessibility
+              ----------------------------------------------------------------- */}
+          <a
+            href="#main"
+            className="sr-focusable z-999 rounded-lg bg-brand-600 px-4 py-2 text-white"
+          >
             Skip to main content
           </a>
 
+          {/* -----------------------------------------------------------------
+              Global UI
+              ----------------------------------------------------------------- */}
           <Preloader />
           <ScrollProgress />
           <CustomCursor />
@@ -78,6 +153,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
           <Navbar />
 
+          {/* -----------------------------------------------------------------
+              Main Content
+              ----------------------------------------------------------------- */}
           <main id="main" className="relative">
             {children}
           </main>
@@ -86,23 +164,37 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <BackToTop />
         </ThemeProvider>
 
-        {/* Vercel analytics — no-ops outside Vercel deployments. */}
+        {/* -----------------------------------------------------------------
+            Vercel Analytics
+            No-ops outside Vercel deployments.
+            ----------------------------------------------------------------- */}
         <Analytics />
         <SpeedInsights />
 
-        {/* Google Analytics — only injected when a measurement ID is configured. */}
+        {/* -----------------------------------------------------------------
+            Google Analytics
+            Only loaded when a measurement ID exists.
+            ----------------------------------------------------------------- */}
         {GA_ID ? (
           <>
             <Script
               src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
               strategy="afterInteractive"
             />
+
             <Script id="ga-init" strategy="afterInteractive">
               {`
                 window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
+
+                function gtag() {
+                  dataLayer.push(arguments);
+                }
+
                 gtag('js', new Date());
-                gtag('config', '${GA_ID}', { anonymize_ip: true });
+
+                gtag('config', '${GA_ID}', {
+                  anonymize_ip: true
+                });
               `}
             </Script>
           </>
