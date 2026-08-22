@@ -51,6 +51,7 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
       { name: 'VS Code', level: 88 },
       { name: 'Android Studio', level: 65 },
       { name: 'Vercel', level: 70 },
+      { name: 'Netlify', level: 70 },
     ],
   },
   {

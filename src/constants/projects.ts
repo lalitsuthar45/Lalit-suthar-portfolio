@@ -1,4 +1,4 @@
-import { Calculator, Github, PlaySquare } from 'lucide-react';
+import { Calculator, Github, UtensilsCrossed } from 'lucide-react';
 import type { Project } from '@/types';
 
 export const PROJECTS: Project[] = [
@@ -33,32 +33,31 @@ export const PROJECTS: Project[] = [
   },
 
   {
-    id: 'jio-hotstar',
-    title: 'Jio Hotstar Login Page',
-    tagline: 'A streaming-style login UI recreation',
+    id: 'haven-food-cafe',
+    title: 'Haven Food Cafe',
+    tagline: 'A cafe/restaurant website with a warm, modern design',
     description:
-      'A frontend project recreating a Jio Hotstar-inspired login experience with a focus on layout, styling and responsive design.',
+      'A frontend project for a cafe/restaurant brand, focused on an inviting layout, menu presentation and responsive design.',
     category: 'Frontend',
-    featured: true,
-    icon: PlaySquare,
-    gradient: 'from-purple-500 to-fuchsia-400',
+    icon: UtensilsCrossed,
+    gradient: 'from-orange-500 to-amber-400',
     features: [
-      'Streaming-inspired interface',
-      'Responsive layout',
-      'Modern form styling',
+      'Cafe-themed responsive design',
+      'Menu and offerings showcase',
+      'Modern, warm visual styling',
       'Frontend-only implementation',
     ],
     stack: ['HTML', 'CSS', 'JavaScript'],
     caseStudy: {
       problem:
-        'I wanted to improve my ability to recreate real-world interfaces from visual references.',
+        'I wanted to design a food/cafe brand website with a clean, appetizing visual identity.',
       approach:
-        'Designed the page structure, styling and responsive behavior with a focus on spacing and visual hierarchy.',
+        'Built a responsive layout highlighting the menu and brand feel, focusing on typography and imagery-driven design.',
       impact:
-        'Strengthened frontend UI implementation and responsive design skills.',
+        'Delivered a live, deployed cafe website showcasing frontend design and layout skills.',
     },
     links: {
-      demo: 'https://lalitsuthar45.github.io/jiohotstar/',
+      demo: 'https://haven-food-cafe.netlify.app/',
     },
   },
 
