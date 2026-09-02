@@ -87,7 +87,7 @@ export const PROJECTS: Project[] = [
         'A public portfolio that documents my projects and growth as a developer.',
     },
     links: {
-      demo: 'https://lalitsuthar45.github.io/',
+      demo: 'https://lalit-suthar.netlify.app/',
     },
   },
 ];
